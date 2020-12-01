@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<productos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="matrioskaXSD.xsd">
+    
+    <producto>
+        <identificacion>
+            Quedan 30 unidades
+            <codigo>VIN456</codigo>
+        </identificacion>
+        <nombre>VINO</nombre>
+    </producto>
+    
+     <producto>
+        <identificacion>
+            <codigo>ACE987</codigo>
+            <id>6353</id>
+            No hay stock
+        </identificacion>
+        <nombre>ACEITE</nombre>
+    </producto>
+
+</productos>

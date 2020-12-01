@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <!--Un solo elemento a nivel global, que encajará con todos los elementos ya sean simpres o complejos
+    <xs:element name="empresa">
+        <xs:compexType>
+            <xs:sequence>
+                
+            </xs:sequence>
+        </xs:compexType>
+    </xs:element>
+    Hasta aqui vendría "la muñeca contenedora, en su interior tendría las demás muñecas, así: -->
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="razonSocial" type="razonSocialType"/>
+                <xs:element name="domicilio" type="domicilioType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="razonSocialType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="CIF" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="domicilioType">
+        <xs:sequence>
+            <xs:element name="calle" type="xs:string"/>
+            <xs:element name="numero" type="xs:string"/>
+            <xs:element name="piso" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

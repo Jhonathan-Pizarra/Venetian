@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <!--Un solo elemento a nivel global, que encajará con todos los elementos ya sean simpres o complejos-->
+    <xs:element name="productos">
+        <xs:compexType>
+            <xs:sequence>
+      
+                <xs:element name="producto"  minOccurs="1" maxOccurs="unbounded">
+                    <xs:compexType>
+                        <xs:sequence>
+                
+                            <xs:element name="identificacion">
+                                <xs:compexType  mixed="true">
+                                    <xs:sequence>
+                                        <xs:element name="codigo" type="xs:string"/> <!--Elemento simple-->
+                                        <xs:element name="id"  minOccurs="0" maxOccurs="unbounded" type="xs:integer"/>  <!--Elemento simple-->
+                                    </xs:sequence>
+                                </xs:compexType>
+                            </xs:element>
+                            
+                            <xs:element name="nombre" type="xs:string"/>  <!--Elemento simple-->
+                            
+                        </xs:sequence>
+                    </xs:compexType>
+                </xs:element>
+                
+                
+                
+            </xs:sequence>
+        </xs:compexType>
+    </xs:element>
+    <!--Hasta aqui vendría "la muñeca contenedora, en su interior tendría las demás muñecas, así: -->
+
+</xs:schema>

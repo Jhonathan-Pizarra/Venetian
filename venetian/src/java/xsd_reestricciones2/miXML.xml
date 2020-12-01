@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<producto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="reestricionesOrganicas.xsd" id="123">  
+    
+    EL PRODUCTO DE SUPERMAXI
+    <codigo>e</codigo>
+    <nombre>leche</nombre>
+    <descripcion valu="456">
+        <color></color>
+        <peso>14gramos</peso>
+        <fecha>2020-07-19</fecha>
+        <cantidad>10</cantidad>
+        <tipo>p</tipo>
+    </descripcion>
+    
+</producto>

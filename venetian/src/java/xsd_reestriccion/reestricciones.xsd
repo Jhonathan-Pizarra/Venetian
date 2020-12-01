@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+
+-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element  name="producto"> 
+        <xs:complexType mixed="true"> 
+            <xs:sequence>
+                <xs:element name="codigo" type="xs:int"/>
+                <xs:element name="nombre" type="xs:string"/>
+               
+             
+                <xs:element name="descripcion"> 
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="color" type="xs:string" default="rojo"/>  
+                             <!--REESTRICCIONES-->
+                            <xs:element name="nombre"> <!--Unicamente definimos el nombre, para este elemento voy a crear una reesticion personalziada -->
+                                <!--Conmamos a definir la estrucutra-->
+                                <xs:simpleType> <!--Porque es de un solo elemento-->
+                                    <xs:restriction base="xs:string"> <!--¿Qué tipo de reestrciion? una de tipo string-->
+                                        <!--Uno de estos valores pued etener el nombre!!-->
+                                        <xs:enumeration value="leche"/>
+                                        <xs:enumeration value="carne"/>
+                                        <xs:enumeration value="pan"/>
+
+                                    </xs:restriction>
+                                    
+                                </xs:simpleType>
+                                
+                            </xs:element>
+                            <xs:element name="peso" type="xs:string" fixed="14gramos"/>
+                            <xs:element name="fecha" type="xs:date"/>  
+                            <!--REESTRICCIONES-->
+                            <xs:element name="cantidad"> <!--Unicamente definimos el nombre, para este elemento voy a crear una reesticion personalziada -->
+                                <!--Conmamos a definir la estrucutra-->
+                                <xs:simpleType> <!--Porque es de un solo elemento-->
+                                    <xs:restriction base="xs:integer"> <!--¿Qué tipo de reestrciion? una de tipo entero-->
+                                        <!--Los valores están dentro de un rango!-->
+                                        <xs:minInclusive value="0"/>
+                                        <xs:maxInclusive value="10"/>
+
+                                    </xs:restriction>
+                                    
+                                </xs:simpleType>
+                                
+                            </xs:element>
+                        </xs:sequence>
+                     
+                        <xs:attribute name="valu" type="xs:integer" fixed="456"/>
+                    </xs:complexType>
+        
+                </xs:element> 
+            </xs:sequence> 
+            <xs:attribute name="id" type="xs:integer" use="required"/>
+        </xs:complexType>
+    </xs:element>
+ 
+    
+</xs:schema>

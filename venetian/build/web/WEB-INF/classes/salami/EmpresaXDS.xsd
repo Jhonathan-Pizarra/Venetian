@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+Exponemos todos los eleemtos a nivel global
+-->
+
+<xsd:schema version="1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+<!--Paso 1) Sacar todos los elementos simples-->
+<!--
+<xs:element name="nombre" type="xs:string"/>
+<xs:element name="CIF" type="xs:string"/>  
+<xs:element name="calle" type="xs:string"/> 
+<xs:element name="numero" type="xs:string"/>  
+<xs:element name="piso" type="xs:string"/>
+-->
+
+<!--Paso 2) Sacar todos los elementos complejos-->
+<!--
+<xs:element name="razonSocial"> Elemento complejo
+     <xs:compexType>
+         <xs:sequence>
+             <xs:element name="nombre" type="xs:string"/> 
+             <xs:element name="CIF" type="xs:string"/>  
+         </xs:sequence>
+     </xs:compexType>
+ </xs:element>
+
+     <xs:element name="domicilio"> 
+        <xs:compexType>
+            <xs:sequence>
+                <xs:element name="calle" type="xs:string"/>
+                <xs:element name="numero" type="xs:string"/>  
+                <xs:element name="piso" type="xs:string"/>  
+            </xs:sequence>
+        </xs:compexType>
+    </xs:element>
+    -->
+    
+    <!--Paso 3) Referenciamoss-->        
+    <!--Desarollo-->
+    <xsd:element name="nombre" type="xsd:string"/>
+    <xsd:element name="CIF" type="xsd:string"/>  
+    <xsd:element name="calle" type="xsd:string"/> 
+    <xsd:element name="numero" type="xsd:string"/>  
+    <xsd:element name="piso" type="xsd:string"/>
+                                               
+    
+    <xsd:element name="empresa"> 
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="razonSocial"/>
+                <xsd:element ref="domicilio"/>
+            </xsd:sequence>
+            
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="razonSocial"> <!--Ya no tengo elementos simples, estos se referencian-->
+        <xsd:complexType>
+            <xsd:sequence>
+              
+                <xsd:element name="nombre" type="xsd:string"/>
+                <xsd:element name="CIF" type="xsd:string"/>  
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="domicilio"> <!--Ya no tengo elementos simples, estos se referencian-->
+        <xsd:complexType>
+            <xsd:sequence>
+              
+                <xsd:element ref="calle" />
+                <xsd:element ref="numero" />
+                <xsd:element ref="piso" />
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    
+</xsd:schema>

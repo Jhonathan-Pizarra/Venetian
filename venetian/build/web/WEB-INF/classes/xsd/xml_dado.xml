@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Reglas de validacions para que este documento XML desa válido
+debe cumplir 2 reglas, bien formado y cumplir con reglas asociadas
+reglas asociadas: XSD
+-->
+
+<!--REFERENCIAR XSL A NUESTRO XML-->
+<producto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="xml_referenciado.xsd"> 
+    <!--Instancia de un documento xml squenma "instance"-->
+    <!--Dónde está ubicado el xml squema-->
+          
+    EL PRODUCTO DE SUPERMAXI
+    <codigo>123</codigo>
+    <nombre>manqtequilla</nombre>
+    <descripcion>
+        <color></color>
+        <peso>14g</peso>
+        <fecha>2020-07-19</fecha>
+    </descripcion>
+    
+</producto>

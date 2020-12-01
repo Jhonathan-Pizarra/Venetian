@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+A nivel atriubtos de los elementos y del propio raíz
+Atributos se los trata como si fueran elementos simples
+
+los atributos tienen diferentes reestriciones
+tyoe
+dafault
+name
+fixed
+required
+-->
+
+<producto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="validaciones.xsd" id="123">  <!--agregamos el atriubot id de tipo integer (No te confundas, las comillas son el valor no el tipo) o sea esntre comillas deben ir numeros-->
+     <!--Instancia de un documento xml squenma-->
+    <!--Dónde está ubicado el xml squema-->
+          
+    EL PRODUCTO DE SUPERMAXI
+    <codigo>123</codigo>
+    <nombre>manqtequilla</nombre>
+    <descripcion valu="456">
+        <color></color>
+        <peso>14g</peso>
+        <fecha>2020-07-19</fecha>
+    </descripcion>
+    
+</producto>

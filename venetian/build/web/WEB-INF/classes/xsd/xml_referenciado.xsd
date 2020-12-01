@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+También se le conoce como xml squema
+
+el prefijo "xs" hereda o se enlace de la url
+el dafualt, al momento al que yo asocie mi esquea al xml debe ser validado
+-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:element name="producto"> <!--Elemento padre raiz-->
+        <xs:complexType mixed="true"> <!--Decimos que el raíz es un elemento complejo y tienen simples-->
+        <!--El atriubtuo mixed me va a decir que mi documento poeude tener texto también ademáss de nodos-->
+            <xs:sequence><!--Cuales son los hijos?--> 
+                <xs:element name="codigo" type="xs:int"/>
+                <xs:element name="nombre" type="xs:string"/>
+               
+                <!--Me toé con un elemento complejo, tonces: -->
+                <xs:element name="descripcion"> <!--Repito el proceso para elemetos complejos-->
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="peso" type="xs:string"/>       
+                            <xs:element name="fecha" type="xs:date"/>       
+
+                        </xs:sequence>
+                    </xs:complexType>
+        
+                </xs:element> 
+            </xs:sequence> <!--Cierro aqui porque me topo con un elemento complejo..-->          
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

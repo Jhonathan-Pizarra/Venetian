@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element  name="producto"> 
+        <xs:complexType mixed="true"> 
+            <xs:sequence>
+                <xs:element name="codigo" type="reestriccionTipo"/>
+                <xs:element name="nombre" type="reestriccionNombre"/> <!--AQUI REFERENCIAMOS MIS REESTRICCIOENS-->
+               
+                <xs:element name="descripcion"> 
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="color" type="xs:string" default="rojo"/>  
+                            <xs:element name="peso" type="xs:string" fixed="14gramos"/>
+                            <xs:element name="fecha" type="xs:date"/>  
+                            <xs:element name="cantidad" type="reestriccionCantidad"/> <!--AQUI REFERENCIAMOS MIS REESTRICCIOENS-->
+                            <xs:element name="tipo" type="reestriccionTipo" />
+                        </xs:sequence>
+                     
+                        <xs:attribute name="valu" type="xs:integer" fixed="456"/>
+                    </xs:complexType>
+        
+                </xs:element> 
+            </xs:sequence> 
+            <xs:attribute name="id" type="xs:integer" use="required"/>
+        </xs:complexType>
+    </xs:element>
+ 
+    <!--En este caso usamos reestricciones reutilizables, ya no para cada elemento-->
+    <!--REESTRICCIONES Cantidad:-->   
+    <xs:simpleType name="reestriccionCantidad"> <!--Porque es de un solo elemento-->
+        <xs:restriction base="xs:integer"> <!--¿Qué tipo de reestrciion? una de tipo entero-->
+            <!--Los valores están dentro de un rango!-->
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+        
+    <!--REESTRICCIONES NOMBRE_-->
+    <xs:simpleType name="reestriccionNombre"> <!--Porque es de un solo elemento-->
+        <xs:restriction base="xs:string"> <!--¿Qué tipo de reestrciion? una de tipo string-->
+            <!--Uno de estos valores pued etener el nombre!!-->
+            <xs:enumeration value="leche"/>
+            <xs:enumeration value="carne"/>
+            <xs:enumeration value="pan"/>
+        </xs:restriction>
+                                    
+    </xs:simpleType>
+    
+    <!--REESTRICCION Tipo-->
+    <xs:simpleType name="reestriccionTipo"> <!--Porque es de un solo elemento-->
+        <xs:restriction base="xs:string"> <!--¿Qué tipo de reestrciion? una de tipo string-->
+            <!--Uno de estos valores pued etener el nombre!!-->
+            <xs:pattern value="[a-z]"/> <!--[A-Z][A-Z][A-Z] acepta solo 3 letras mayuzculas-->
+        </xs:restriction>                  
+    </xs:simpleType>
+                                
+
+    
+</xs:schema>
+
+
+   
+   

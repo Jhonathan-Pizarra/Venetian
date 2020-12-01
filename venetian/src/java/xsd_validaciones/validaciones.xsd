@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+
+-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element  name="producto"> <!--Elemento padre raiz-->
+        <xs:complexType mixed="true"> <!--Decimos que el raíz es un elemento complejo y tienen simples-->
+            <!--El atriubtuo mixed me va a decir que mi documento poeude tener texto también ademáss de nodos-->
+            <xs:sequence><!--Cuales son los hijos?--> 
+                <xs:element name="codigo" type="xs:int"/>
+                <xs:element name="nombre" type="xs:string"/>
+               
+                <!--Me toé con un elemento complejo, tonces: -->
+                <xs:element name="descripcion"> <!--Repito el proceso para elemetos complejos-->
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="color" type="xs:string" default="rojo"/>  <!--Por defecto sea rojo-->
+                            <xs:element name="peso" type="xs:string" fixed="14g"/> <!--Siempre de los siempres por nunca jamás sea 14g-->
+                            <xs:element name="fecha" type="xs:date"/>   <!--Debe de tener formado year/montho/day-->    
+                        </xs:sequence>
+                        <!--Los atributos de un elemento, los definimos al final de la secuancia! pero dentro del compexType del elemento! (en este caso descipcion)-->
+                        <xs:attribute name="valu" type="xs:integer" fixed="456"/>
+                    </xs:complexType>
+        
+                </xs:element> 
+            </xs:sequence> <!--Cierro aqui porque me topo con un elemento complejo..-->          
+           
+            <!--Los atributos de un elemento, los definimos al final de la secuancia! pero dentro del compexType del elemento! (en este caso productos)-->
+            <xs:attribute name="id" type="xs:integer" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>
